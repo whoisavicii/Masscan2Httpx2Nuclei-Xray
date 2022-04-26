@@ -3,7 +3,7 @@ masscan全端口扫描==>httpx探测WEB服务==>nuclei漏洞扫描
 `解放双手`
 # 环境准备 
 - 自备nuclei httpx 放脚本同目录(文件名不变)
-- 自备masscan python
+- 自备masscan python3
 - pip3 install -r requirement.txt
 - 将要扫描的资产放在ip.txt里面
 - **python3 Masscan2Httpx2Nuclei.py**
