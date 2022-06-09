@@ -16,3 +16,6 @@ masscan全端口扫描==>httpx探测WEB服务==>nuclei漏洞扫描
 * **[masscan](https://github.com/robertdavidgraham/masscan)**
 * **[httpx](https://github.com/projectdiscovery/httpx)**
 * **[nuclei](https://github.com/projectdiscovery/nuclei)**
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=LinuxSuRen/remote-jobs-in-china&type=Date)](https://star-history.com/#LinuxSuRen/remote-jobs-in-china&Date)
