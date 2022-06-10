@@ -14,8 +14,8 @@ masscan全端口扫描==>httpx探测WEB服务==>nuclei漏洞扫描
 `联动xray`
 # 关于
 * **[masscan](https://github.com/robertdavidgraham/masscan)**
-* **[httpx](https://github.com/projectdiscovery/httpx)**
-* **[nuclei](https://github.com/projectdiscovery/nuclei)**
+* **[httpx](https://github.com/projectdiscovery/httpx/releases/)**
+* **[nuclei](https://github.com/projectdiscovery/nuclei/releases)**
 
 ## Star History
 
