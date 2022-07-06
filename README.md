@@ -7,6 +7,7 @@ masscan全端口扫描==>httpx探测WEB服务==>nuclei漏洞扫描
 - pip3 install -r requirement.txt
 - 将要扫描的资产放在ip.txt里面
 - python3 Masscan2Httpx2Nuclei.py -i ip.txt -p 1-65535 --rate 2000
+- nuclei默认只扫描medium,high,critical级别，方便打野，如有其他需求请自行更新
 - **睡一觉**
 ## 没啥技术含量的脚本，能用就行
 ![image](https://user-images.githubusercontent.com/62868358/177557080-c4c89b89-d826-4e07-a6e7-6b2e9e600721.png)
