@@ -14,10 +14,10 @@ def biaoti():
     print(splash1)
 
 def args():
-    parser = argparse.ArgumentParser(description='Masscan2Httpx2Nuclei')
-    parser.add_argument('-i', '--input', help='input file', required=True)
-    parser.add_argument('-p', '--port', help='port', required=True)
-    parser.add_argument('--rate', '--rate', help='rate', required=True)
+    parser = argparse.ArgumentParser(description='以下输入为必填项，格式请参考masscan文档')
+    parser.add_argument('-i', help='IP地址.txt', required=True)
+    parser.add_argument('-p', help='端口', required=True)
+    parser.add_argument('--rate', help='masscan速率', required=True)
     args = parser.parse_args()
     return args
 
@@ -121,3 +121,4 @@ def main():
 if __name__ == '__main__':
     main()
     exit()
+
