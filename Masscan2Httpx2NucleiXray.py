@@ -15,21 +15,39 @@ def biaoti():
 
 def args():
     parser = argparse.ArgumentParser(description='Masscan2Httpx2Nuclei')
-    parser.add_argument('-i', help='参考masscan -iL', required=True)
-    parser.add_argument('-p', help='参考masscan -p', required=True)
-    parser.add_argument('--rate', help='参考masscan速率rate', required=True)
+    #help换行
+    parser.add_argument('-i', '--input', help='参考masscan -iL', required=True)
+    parser.add_argument('-p', '--port',help='参考masscan -p', required=True)
+    parser.add_argument('-rate','--rate', help='参考masscan速率rate', required=True)
     args = parser.parse_args()
     return args
 
+def update():
+    splash00 = """
+        +----------------------------------+
+        | nuclei&xray检查更新ing         
+        +----------------------------------+
+    """
+    print(splash00)
+    os.system('./nuclei -update')
+    os.system('./xray_linux_amd64 upgrade')
+    splash03 = """
+        +----------------------------------+
+        | 检查完毕，开扫，好好休息~       
+        +----------------------------------+
+    """
+    print(splash03)
+
+
 def check_args(args):
     if not os.path.exists(args.input):
-        print('input file not exists')
+        print('ip文件不存在')
         exit()
     if not args.port:
-        print('port not exists')
+        print('请输入端口参数')
         exit()
     if not args.rate:
-        print('rate not exists')
+        print('请输入扫描速率(例：-rate 2000)')
         exit()
     return args
 
@@ -48,17 +66,17 @@ def masscan2httpx2nuclei_main():
             time.sleep(1)
     if os.path.getsize("masscan.txt") == 0:
         splash3 = """
-        +----------------------------------+
-        | 无端口开放，程序已退出!          |
-        +----------------------------------+
+            +----------------------------------+
+            | 无端口开放，程序已退出!          
+            +----------------------------------+
         """
         print(splash3)
         exit()
     else :
         splash4 = """
-        +----------------------------------+
-        | Masscan扫描结果解析并调用httpx   |
-        +----------------------------------+
+            +----------------------------------+
+            | Masscan扫描结果解析并调用httpx   
+            +----------------------------------+
         """
         print(splash4)
         masscanfile = open("masscan.txt", "r")
@@ -76,22 +94,22 @@ def masscan2httpx2nuclei_main():
         os.system('./httpx -l masscanconvert.txt -nc -o httpxresult.txt')
         os.remove("masscan.txt")
         splash2 = """
-        +----------------------------------+
-        | Httpx is done !                  |
-        +----------------------------------+
+            +----------------------------------+
+            | Httpx is done !                  
+            +----------------------------------+
         """
         print(splash2)
     else:
         splash5 = """
-        +----------------------------------+
-        | 未发现解析后的masscan端口结果    |
-        +----------------------------------+
+            +----------------------------------+
+            | 未发现解析后的masscan端口结果    
+            +----------------------------------+
         """
         print(splash5)
         exit()
     if os.path.exists("httpxresult.txt"):
         os.system('./nuclei -l httpxresult.txt -s medium,high,critical -o nucleiresult.txt')
-        os.system('./xray webscan -url-file httpxresult.txt --html-output xray.html')
+        os.system('./xray_linux_amd64 webscan -url-file httpxresult.txt --html-output xray.html')
         os.remove("httpxresult.txt")
         os.remove("masscanconvert.txt")
     else:
@@ -99,30 +117,30 @@ def masscan2httpx2nuclei_main():
         exit()
     if os.path.exists("nucleiresult.txt"):
         splash6 = """
-        +----------------------------------+
-        | 扫描完成。请查看nucleiresult.txt |
-        +----------------------------------+
+            +----------------------------------+
+            | 扫描完成。请查看nucleiresult.txt 
+            +----------------------------------+
         """
         print(splash6)
     else:
         splash7 = """
-        +----------------------------------+
-        | nuclei未发现中高危漏洞                
-        +----------------------------------+
+            +----------------------------------+
+            | nuclei未发现中高危漏洞                
+            +----------------------------------+
         """
         print(splash7)
     if os.path.exists("xray.html"):
         splash8 = """
-        +----------------------------------+
-        | 扫描完成。请查看xray.html        |
-        +----------------------------------+
+            +----------------------------------+
+            | 扫描完成。请查看xray.html        
+            +----------------------------------+
         """
         print(splash8)
     else:
         splash9 = """
-        +----------------------------------+
-        | xray未发现漏洞                    
-        +----------------------------------+
+            +----------------------------------+
+            | xray未发现漏洞                    
+            +----------------------------------+
         """
         print(splash9)
     exit()
@@ -130,6 +148,7 @@ def masscan2httpx2nuclei_main():
 
 def main():
     biaoti()
+    update()
     masscan2httpx2nuclei(args())
     masscan2httpx2nuclei_main()
 
