@@ -2,9 +2,8 @@
 masscan全端口扫描==>httpx探测WEB服务==>nuclei&xray漏洞扫描
 `解放双手`
 # 环境准备 
-- 自备nuclei httpx xray 放脚本同目录(文件名请保持不变)
+- 自备nuclei\httpx\xray_linux_amd64放脚本同目录(文件名请保持不变)
 - 自备masscan python3环境
-- pip3 install -r requirement.txt
 - 将要扫描的资产放在ip.txt里面
 - python3 Masscan2Httpx2Nuclei.py -i ip.txt -p 1-65535 --rate 2000
 - nuclei默认只扫描medium,high,critical级别，方便打野，如有其他需求请自行更新
