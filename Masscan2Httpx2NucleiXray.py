@@ -15,7 +15,6 @@ def biaoti():
 
 def args():
     parser = argparse.ArgumentParser(description='Masscan2Httpx2Nuclei')
-    #help换行
     parser.add_argument('-i', '--input', help='参考masscan -iL', required=True)
     parser.add_argument('-p', '--port',help='参考masscan -p', required=True)
     parser.add_argument('-rate','--rate', help='参考masscan速率rate', required=True)
@@ -33,7 +32,7 @@ def update():
     os.system('./xray_linux_amd64 upgrade')
     splash03 = """
         +----------------------------------+
-        | 检查完毕，开扫，好好休息~       
+        | 检查完毕，开扫
         +----------------------------------+
     """
     print(splash03)
