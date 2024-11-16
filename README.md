@@ -16,6 +16,3 @@ masscan全端口扫描==>httpx探测WEB服务==>nuclei&xray漏洞扫描
 * **[httpx](https://github.com/projectdiscovery/httpx/releases/)**
 * **[nuclei](https://github.com/projectdiscovery/nuclei/releases)**
 * **[xray](https://github.com/chaitin/xray/releases/tag/1.8.4)**
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=whoisavicii/Masscan2Httpx2Nuclei&type=Date)](https://star-history.com/#whoisavicii/Masscan2Httpx2Nuclei&Date)
